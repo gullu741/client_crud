@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Client List</title>
+</head>
+<body>
+<h3>Client List</h3>
+{% for client in clients.all|dictsort:"first_name" %}
+    <p>{{ forloop.counter }}. {{ client.first_name }}  {{ client.last_name }}
+        <a href="{% url 'clients:client_detail' client.id %}">View</a>
+        (<a href="{% url 'clients:client_update' client.id %}">Update</a> |
+        <a href="{% url 'clients:client_delete' client.id %}">Delete</a>)
+    </p>
+{% endfor %}
+
+<p> <a href="{% url 'clients:client_create' %}"> + Add A New Client</a></p>
+</body>
+</html>

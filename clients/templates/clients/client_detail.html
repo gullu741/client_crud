@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Client Detail</title>
+</head>
+<body>
+<p> Name: {{ client.first_name }} | <a href="{% url 'clients:client_update' client.id %}">Update</a> |
+    <a href="{% url 'clients:client_delete' client.id %}">Delete</a>
+</p>
+<p> Last Name: {{ client.last_name }} </p>
+<p> Phone Number: {{ client.phone_number }} </p>
+<p> Date of Contact: {{ client.doc }} </p>
+<p> <a href="{% url 'clients:client_list' %}">View All Clients</a> |
+    <a href="{% url 'clients:client_create'%}">New Client</a>
+</p>
+</body>
+</html>
